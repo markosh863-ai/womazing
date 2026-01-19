@@ -5,15 +5,20 @@ import { useAuth } from "../context/AuthContext";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [error, setError] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && name) {
-      login(email, name);
-      navigate("/account");
+    setError("");
+    if (email) {
+      try {
+        login(email, ""); // name не используется при логине, берется из сохраненных данных
+        navigate("/account");
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Ошибка входа");
+      }
     }
   };
 
@@ -35,19 +40,9 @@ export const Login = () => {
           <div className="-space-y-px rounded-md shadow-sm">
             <div>
               <input
-                type="text"
-                required
-                className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 dark:text-white dark:bg-gray-800 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-black dark:focus:ring-white sm:text-sm sm:leading-6 px-3"
-                placeholder="Ваше имя"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div>
-              <input
                 type="email"
                 required
-                className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 dark:text-white dark:bg-gray-800 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-black dark:focus:ring-white sm:text-sm sm:leading-6 px-3"
+                className="relative block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-white dark:bg-gray-800 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-black dark:focus:ring-white sm:text-sm sm:leading-6 px-3"
                 placeholder="Email адрес"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -55,6 +50,11 @@ export const Login = () => {
             </div>
           </div>
 
+          {error && (
+            <div className="text-red-600 dark:text-red-400 text-sm text-center">
+              {error}
+            </div>
+          )}
           <div>
             <Button type="submit" className="w-full">
               Войти

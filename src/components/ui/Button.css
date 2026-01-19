@@ -1,0 +1,96 @@
+/* Базовая кнопка */
+.button {
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+  border-radius: 0; /* rounded-none */
+  font-weight: 400; /* font-normal */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px #9ca3af; /* имитация ring-2 и ring-offset-2 */
+}
+
+.button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Варианты цветов */
+.button-primary {
+  background-color: #6E9C91;
+  color: #ffffff;
+}
+
+.button-primary:hover {
+  background-color: #5e867c;
+}
+
+.button-primary:active {
+  background-color: #4d6e66;
+}
+
+.button-secondary {
+  background-color: #F1EADC;
+  color: #6E9C91;
+}
+
+.button-secondary:hover {
+  background-color: #e2d6bc;
+}
+
+.button-outline {
+  border: 1px solid #6E9C91;
+  background-color: transparent;
+  color: #6E9C91;
+}
+
+.button-outline:hover {
+  background-color: #6E9C91;
+  color: #ffffff;
+}
+
+.button-ghost {
+  background-color: transparent;
+  color: #4b5563; /* gray-600 */
+}
+
+.button-ghost:hover {
+  background-color: #f9fafb; /* gray-50 */
+  color: #000000;
+}
+
+/* Размеры */
+.button-sm {
+  height: 2.5rem; /* 40px */
+  padding: 0 1.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em; /* tracking-wider */
+}
+
+.button-md {
+  height: 3rem; /* 48px */
+  padding: 0 2.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.1em; /* tracking-widest */
+  text-transform: uppercase;
+}
+
+.button-lg {
+  height: 4rem; /* 64px */
+  padding: 0 3.5rem;
+  font-size: 1.125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 300; /* font-light */
+}
+
+/* Темная тема (если вы не используете классы .dark на родителе, можно удалить) */
+.dark .button-secondary {
+  background-color: #1f2937;
+  color: #ffffff;
+}

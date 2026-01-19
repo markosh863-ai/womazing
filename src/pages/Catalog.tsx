@@ -29,13 +29,18 @@ export const Catalog = () => {
     }
     
     if (filterQuery === "men") {
-        // Mock logic: assuming some categories are men's
-        return ["Худи", "Джинсы", "Костюмы", "Обувь", "Рубашки", "Брюки"].includes(product.category);
+        // Мужские категории
+        return ["Худи", "Костюмы", "Рубашки", "Брюки"].includes(product.category);
     }
     
     if (filterQuery === "women") {
-        // Mock logic
-        return ["Платья", "Топы", "Юбки", "Аксессуары"].includes(product.category);
+        // Женские категории
+        return ["Платья", "Топы", "Юбки", "Трикотаж"].includes(product.category);
+    }
+    
+    if (filterQuery === "accessories") {
+        // Аксессуары
+        return product.category === "Аксессуары";
     }
 
     return true;
@@ -50,11 +55,21 @@ export const Catalog = () => {
     setSearchParams(searchParams);
   };
 
+  const resetCatalog = () => {
+    setSearchParams({});
+    setSortBy("default");
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight mb-2 text-gray-900 dark:text-white">
+          <h1 
+            className={`text-3xl font-bold tracking-tight mb-2 text-gray-900 dark:text-white ${
+              !searchQuery ? "cursor-pointer hover:opacity-70 transition-opacity" : ""
+            }`}
+            onClick={!searchQuery ? resetCatalog : undefined}
+          >
             {searchQuery ? `Результаты поиска: "${searchQuery}"` : "Каталог"}
           </h1>
           <p className="text-gray-500 dark:text-gray-400">
@@ -77,7 +92,7 @@ export const Catalog = () => {
           <select 
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="border-gray-300 dark:border-gray-700 py-2 pl-3 pr-10 text-base focus:border-black dark:focus:border-white focus:outline-none focus:ring-black dark:focus:ring-white sm:text-sm rounded-none border bg-transparent text-gray-900 dark:text-white dark:bg-gray-950"
+            className="border-gray-300 dark:border-gray-700 py-2 pl-3 pr-10 text-base focus:border-black dark:focus:border-white focus:outline-none focus:ring-black dark:focus:ring-white sm:text-sm rounded-md border bg-transparent text-gray-900 dark:text-white dark:bg-gray-950"
           >
             <option value="default" className="dark:bg-gray-900">Сортировка: По умолчанию</option>
             <option value="price-asc" className="dark:bg-gray-900">Цена: По возрастанию</option>

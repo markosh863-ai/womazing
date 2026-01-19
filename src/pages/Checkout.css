@@ -1,0 +1,107 @@
+.checkout-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+}
+
+.checkout-title {
+  @apply text-3xl font-bold tracking-tight mb-10 text-gray-900 dark:text-white;
+}
+
+.checkout-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-12;
+}
+
+.checkout-section-title {
+  @apply text-xl font-semibold mb-6 text-gray-900 dark:text-white;
+}
+
+.checkout-form {
+  @apply space-y-6;
+}
+
+.checkout-form-row {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.checkout-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.checkout-input {
+  @apply mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white shadow-sm focus:border-black dark:focus:border-white focus:ring-black dark:focus:ring-white sm:text-sm py-2 px-3 border;
+}
+
+.checkout-summary {
+  @apply bg-gray-50 dark:bg-gray-900 p-6 rounded-lg h-fit;
+}
+
+.checkout-summary-title {
+  @apply text-xl font-semibold mb-6 text-gray-900 dark:text-white;
+}
+
+.checkout-items-list {
+  @apply flow-root mb-6;
+}
+
+.checkout-item {
+  @apply flex py-4;
+}
+
+.checkout-item-image-container {
+  @apply h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-700;
+}
+
+.checkout-item-image {
+  @apply h-full w-full object-cover object-center;
+}
+
+.checkout-item-info {
+  @apply ml-4 flex flex-1 flex-col;
+}
+
+.checkout-item-header {
+  @apply flex justify-between text-base font-medium text-gray-900 dark:text-white;
+}
+
+.checkout-item-category {
+  @apply mt-1 text-sm text-gray-500 dark:text-gray-400;
+}
+
+.checkout-item-quantity {
+  @apply flex flex-1 items-end justify-between text-sm;
+}
+
+.checkout-item-quantity-text {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.checkout-totals {
+  @apply border-t border-gray-200 dark:border-gray-800 pt-4 space-y-4;
+}
+
+.checkout-total-row {
+  @apply flex items-center justify-between;
+}
+
+.checkout-total-label {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+.checkout-total-value {
+  @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.checkout-total-final {
+  @apply flex items-center justify-between border-t border-gray-200 dark:border-gray-800 pt-4;
+}
+
+.checkout-total-final-label {
+  @apply text-base font-bold text-gray-900 dark:text-white;
+}
+
+.checkout-total-final-value {
+  @apply text-base font-bold text-gray-900 dark:text-white;
+}
+
+.checkout-submit {
+  @apply mt-6;
+}

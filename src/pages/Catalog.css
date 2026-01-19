@@ -1,0 +1,47 @@
+.catalog-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+}
+
+.catalog-header {
+  @apply flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4;
+}
+
+.catalog-title {
+  @apply text-3xl font-bold tracking-tight mb-2 text-gray-900 dark:text-white;
+}
+
+.catalog-title-clickable {
+  @apply cursor-pointer hover:opacity-70 transition-opacity;
+}
+
+.catalog-subtitle {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.catalog-controls {
+  @apply flex flex-wrap gap-4 items-center;
+}
+
+.catalog-select {
+  @apply border-gray-300 dark:border-gray-700 py-2 pl-3 pr-10 text-base focus:border-black dark:focus:border-white focus:outline-none focus:ring-black dark:focus:ring-white sm:text-sm rounded-md border bg-transparent text-gray-900 dark:text-white dark:bg-gray-950;
+}
+
+.products-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12;
+}
+
+.empty-state {
+  @apply flex flex-col items-center justify-center py-20 text-center bg-gray-50 dark:bg-gray-900 rounded-lg;
+}
+
+.empty-state-icon {
+  @apply h-12 w-12 text-gray-400 mb-4;
+}
+
+.empty-state-title {
+  @apply text-xl font-semibold mb-2 text-gray-900 dark:text-white;
+}
+
+.empty-state-description {
+  @apply text-gray-500 dark:text-gray-400 mb-6 max-w-md;
+}

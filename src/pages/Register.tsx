@@ -6,14 +6,20 @@ import { useAuth } from "../context/AuthContext";
 export const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
   const { register } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
     if (email && name) {
-      register(email, name);
-      navigate("/account");
+      try {
+        register(email, name);
+        navigate("/account");
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Ошибка регистрации");
+      }
     }
   };
 
@@ -55,6 +61,11 @@ export const Register = () => {
             </div>
           </div>
 
+          {error && (
+            <div className="text-red-600 dark:text-red-400 text-sm text-center">
+              {error}
+            </div>
+          )}
           <div>
             <Button type="submit" className="w-full">
               Зарегистрироваться

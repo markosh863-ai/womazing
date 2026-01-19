@@ -140,7 +140,7 @@ export const products: Product[] = [
     name: "Брюки Карго",
     category: "Брюки",
     price: 5200,
-    image: "https://images.unsplash.com/photo-1517445312882-5627b9311353?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 20,
@@ -235,7 +235,7 @@ export const products: Product[] = [
     name: "Бомбер Университетский",
     category: "Верхняя одежда",
     price: 7900,
-    image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 33,
@@ -249,7 +249,7 @@ export const products: Product[] = [
     name: "Юбка Мини Кожаная",
     category: "Юбки",
     price: 3900,
-    image: "https://images.unsplash.com/photo-1609357602123-97136a797c77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "https://didmarko.ru/image/cache/catalog/%2022%D0%B3/534A8863-830x1120.jpg",
   },
   {
     id: 35,

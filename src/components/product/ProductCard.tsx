@@ -21,14 +21,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       viewport={{ once: true }}
       className="group relative flex flex-col gap-3"
     >
-      <div className="relative aspect-[3/4] overflow-hidden bg-gray-100 dark:bg-gray-800">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
         <img
           src={product.image}
           alt={product.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 rounded-lg"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            // Fallback изображение из Unsplash
+            target.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+          }}
         />
         {product.isNew && (
-          <span className="absolute left-3 top-3 bg-white dark:bg-black px-2 py-1 text-xs font-medium uppercase tracking-wider text-black dark:text-white">
+          <span className="absolute left-3 top-3 bg-white dark:bg-black px-2 py-1 text-xs font-medium uppercase tracking-wider text-black dark:text-white rounded-md">
             New
           </span>
         )}

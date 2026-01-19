@@ -43,7 +43,6 @@ export const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md transition-colors duration-300">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         
-        {/* Mobile Menu Button */}
         <button 
             className="lg:hidden p-2 -ml-2 text-gray-900 dark:text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -51,14 +50,12 @@ export const Header = () => {
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
-        {/* Logo */}
         {!isSearchOpen && (
           <Link to="/" className="text-2xl font-bold tracking-tighter uppercase text-black dark:text-white">
             Wonep<span className="text-gray-400">.</span>
           </Link>
         )}
 
-        {/* Desktop Nav */}
         <nav className={`hidden lg:flex items-center gap-8 ${isSearchOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           {navLinks.map((link) => (
             <NavLink
@@ -76,7 +73,6 @@ export const Header = () => {
           ))}
         </nav>
 
-        {/* Search Bar Overlay (Desktop & Mobile) */}
         {isSearchOpen && (
           <div className="absolute inset-0 flex items-center justify-center bg-white dark:bg-gray-950 px-4 z-10">
             <form onSubmit={handleSearchSubmit} className="w-full max-w-3xl flex items-center gap-4">
@@ -140,7 +136,6 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && !isSearchOpen && (
         <div className="lg:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 px-4 py-4 h-screen">
             <nav className="flex flex-col gap-6">

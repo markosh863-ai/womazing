@@ -10,6 +10,7 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { Account } from "./pages/Account";
 import { Checkout } from "./pages/Checkout";
+import { About } from "./pages/About";
 import { ShopProvider } from "./context/ShopContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { AuthProvider } from "./context/AuthContext";
@@ -41,6 +42,7 @@ function App() {
                   <Route path="/register" element={<Register />} />
                   <Route path="/account" element={<Account />} />
                   <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/about" element={<About />} />
                 </Routes>
               </main>
               <Footer />

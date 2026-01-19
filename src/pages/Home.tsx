@@ -54,12 +54,25 @@ export const Home = () => {
         <h2 className="text-3xl font-bold mb-10 tracking-tight text-gray-900 dark:text-white">Категории</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { name: "Женщинам", img: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { name: "Мужчинам", img: "https://images.unsplash.com/photo-1617137968427-85924c809a29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-            { name: "Аксессуары", img: "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+            { name: "Женщинам", img: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", filter: "women" },
+            { name: "Мужчинам", img: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", filter: "men" },
+            { name: "Аксессуары", img: "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", filter: "accessories" },
           ].map((cat, idx) => (
-            <Link to="/catalog" key={idx} className="group relative h-96 overflow-hidden bg-gray-100 dark:bg-gray-800">
-              <img src={cat.img} alt={cat.name} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Link to={`/catalog?filter=${cat.filter}`} key={idx} className="group relative h-96 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
+              <img 
+                src={cat.img} 
+                alt={cat.name} 
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-lg"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  // Fallback изображение для мужской одежды
+                  if (cat.name === "Мужчинам") {
+                    target.src = "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+                  } else {
+                    target.style.display = "none";
+                  }
+                }}
+              />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
               <div className="absolute bottom-6 left-6 text-white">
                 <h3 className="text-2xl font-bold flex items-center gap-2">
